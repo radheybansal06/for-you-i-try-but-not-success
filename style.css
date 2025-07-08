@@ -1,0 +1,160 @@
+:root {
+    --primary: #fff;
+    --bg-color: #0fa4c5;
+    --bg-envelope-color: #ff69b4;
+    --envelope-tab: #db7093;
+    --envelope-cover: #cd5c5c;
+    --shadow-color: rgba(0, 40, 116, 0.25);
+    --text-color: #d2691e;
+    --tortoise-color: #32cd32;
+    --text-font: 'Comic Sans MS', cursive, sans-serif;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: var(--bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: var(--text-font);
+  }
+  
+  .container {
+    display: grid;
+    place-items: center;
+  }
+  
+  .envelope-wrapper {
+    background: var(--bg-envelope-color);
+    border-radius: 15px;
+    box-shadow: 0 20px 40px var(--shadow-color);
+    padding: 25px;
+    transition: transform 0.3s ease;
+    position: relative;
+  }
+  
+  .envelope-wrapper:hover {
+    transform: scale(1.02);
+  }
+  
+  .envelope {
+    position: relative;
+    width: 320px;
+    height: 240px;
+    perspective: 1000px;
+  }
+  
+  .envelope::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    border-top: 140px solid var(--envelope-tab);
+    border-right: 160px solid transparent;
+    border-left: 160px solid transparent;
+    transform-origin: top;
+    transition: all 0.6s ease-in-out;
+  }
+  
+  .envelope::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    width: 0;
+    height: 0;
+    border-top: 140px solid transparent;
+    border-right: 160px solid var(--envelope-cover);
+    border-bottom: 100px solid var(--envelope-cover);
+    border-left: 160px solid var(--envelope-cover);
+  }
+  
+  .letter {
+    position: absolute;
+    right: 23%;
+    bottom: -120px; /* moves it below */
+    width: 54%;
+    height: 180px;
+    background: var(--primary);
+    text-align: center;
+    transition: all 0.5s ease-in-out;
+    box-shadow: 0 5px 10px var(--shadow-color);
+    padding: 20px 10px;
+    border-radius: 6px;
+    overflow: auto;
+    z-index: 3;
+  }
+  
+  
+  
+  .letter .text {
+    color: var(--text-color);
+    text-align: left;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+  
+  .tortoise {
+    position: absolute;
+    top: -14px; /* Adjusted from -25px */
+    left: 50%;
+    transform: translateX(-50%) rotate(0deg);
+    font-size: 24px;
+    background: #32cd32;
+    color: white;
+    border-radius: 10px;
+    padding: 4px 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    border: 2px dashed #fff;
+    z-index: 10;
+    cursor: pointer;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  
+  
+  
+  
+  .tortoise:hover {
+    box-shadow: 0 0 12px var(--tortoise-color);
+  }
+  
+  .tortoise::before,
+  .tortoise::after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: var(--tortoise-color);
+    border-radius: 50%;
+  }
+  
+  .tortoise::before {
+    top: -10px;
+    left: 0;
+  }
+  
+  .tortoise::after {
+    right: -10px;
+    top: 0;
+  }
+  
+  /* Flap open styles triggered by JS toggle */
+  .flap .envelope::before {
+    transform: rotateX(180deg);
+    z-index: 0;
+  }
+  
+  .flap .letter {
+    bottom: 100px; /* pulls the letter upward */
+    transform: scale(1.1);
+    transition-delay: 0.4s;
+  }
+  
+  
+  .flap .tortoise {
+    transform: translateX(-50%) rotate(90deg);
+  }
+  
