@@ -17,6 +17,6 @@ tasks =[
 ]
 if st.button("spin it and lick me😁"):
     selected=random.choice(tasks)
-    st.markdown("<h2 style='text-align: center; color: blue ;'>{selected}</h2>", unsafe_allow_html=True)
+    st.markdown(f"<h2 style='text-align: center; color: blue ;'>{selected}</h2>", unsafe_allow_html=True)
 else:
     st.markdown("<p style='text-align: center; color: red ;'>surprise tasks are waiting for you and me tooo🥺</p>", unsafe_allow_html=True)
