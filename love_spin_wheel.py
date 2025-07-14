@@ -17,7 +17,8 @@ tasks =[
     "give me a bold lip kisssss🥺"
 ]
 if st.button("spin it and lick me😁"):
-    spin_gif_url = "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjA4OTZlMmZlZDIwMzVjYjMyZDJmYmQxNjFhZTJiOGFjNDA5MzE5MCZjdD1n/gH7Zfv7NJkHjxYrTNB/giphy.gif"
+    spin_gif_url = "https://media.giphy.com/media/L05HgB2h6qICDs5Sms/giphy.gif"
+
     st.image(spin_gif_url, caption="Spinning...", use_column_width=True)
     
     time.sleep(2.5)
