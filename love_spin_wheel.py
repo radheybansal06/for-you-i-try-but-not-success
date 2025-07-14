@@ -1,6 +1,7 @@
 
 import streamlit as st
 import random
+import time
 st.set_page_config(page_title="lets spin the wheel love!!!!", page_icon="🐢", layout="centered")
 st.markdown("<h1 style='text-align: center; color: pastel pink ;'>🎡 Spin the Love Wheel 💖</h1>", unsafe_allow_html=True)
 tasks =[
